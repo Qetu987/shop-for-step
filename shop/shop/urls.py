@@ -15,11 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from index.views import index
+from index.views import index, catalog
 
 urlpatterns = [
     path('grappelli/', include('grappelli.urls')), # grappelli URLS
     path('admin/', admin.site.urls), # admin site
     path('admin/', admin.site.urls),
     path('', index),
+    path('catalog/', catalog, name='catalog'),
 ]

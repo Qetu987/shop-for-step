@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+
+
+{% block big_carusel %}
+<div class="catalog_head d-flex justify-content-center align-items-center">
+    <p class="catalog_head">Каталог</p>
+</div>
+
+{% endblock %}
+
+{% block sub_menu %}
+    {% include "include/sub_menu.html" %}
+{% endblock %}
+
+{% block main %}
+    {% include "include/product_grid.html" %}
+{% endblock %}
+
+{% block top_items %}
+    {% include "include/carusel_top_items.html" %}
+{% endblock %}

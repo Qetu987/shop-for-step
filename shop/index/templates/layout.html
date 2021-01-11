@@ -22,12 +22,12 @@
 				<p class="main_logo">Logo of company</p>
 			</div>
 			<div class="col-md-6 d-flex justify-content-end">
-				<a href="">
+				<a href="/">
 					<div class="main_menu_button_field">
 						<p class="main_menu_button_text">Top sales</p>
 					</div>
 				</a>
-				<a href="">
+				<a href="{% url 'catalog' %}">
 					<div class="main_menu_button_field">
 						<p class="main_menu_button_text">Catalog</p>
 					</div>
@@ -51,10 +51,19 @@
 	{% block big_carusel %}
 
     {% endblock %}
-
-
 	
 	<!-- end main carusel -->
+
+	<!-- sub menu -->
+
+	{% block sub_menu %}
+
+	{% endblock %}
+
+	<!-- sub menu -->
+
+	{% block main %}
+	{% endblock %}
 
 	<!-- main traid -->
 	{% block squares %}
