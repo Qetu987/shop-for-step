@@ -40,16 +40,7 @@ a{
 	margin-bottom: 20px;
 }
 
-p,a,h1{
-	margin: 0 !important;
-	padding: 0 !important;
-	text-decoration: none !important;
-}
-*{
-	margin: 0;
-	padding: 0;
-	text-decoration: none;
-}
+
 
 body{
 	background: #ffffff;
@@ -522,7 +513,8 @@ p.product_discount{
 }
 
 .product_title{
-	margin: 0px 0px 10px 10px;
+	margin-left: 10px;
+	margin-bottom: 10px;
 	font-size: 20px;
 	color: #232323;
 }
@@ -698,3 +690,28 @@ a:hover {
 }
 
 /* end load more contant */
+
+
+/* placeholder */
+ 
+::-webkit-input-placeholder {
+	text-align: center;
+	color: #B9B3AE;
+ }
+ 
+ :-moz-placeholder { /* Firefox 18- */
+	text-align: center; 
+	color: #B9B3AE; 
+ }
+ 
+ ::-moz-placeholder {  /* Firefox 19+ */
+	text-align: center;  
+	color: #B9B3AE;
+ }
+ 
+ :-ms-input-placeholder {  
+	text-align: center; 
+	color: #B9B3AE;
+ }
+
+/* end placeholder */

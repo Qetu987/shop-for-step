@@ -6,3 +6,4 @@ django-grappelli
 Pillow
 markdown
 social-auth-app-django
+django-mathfilters

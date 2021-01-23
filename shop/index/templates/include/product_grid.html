@@ -1,520 +1,69 @@
 {% load static %}
+{% load mathfilters %}
 
 <div class="container">
     <div class="row">
-        <div class="col-xl-3 d-flex justify-content-center align-items-center">
-            <div class="product itemitem">
-                <div class="d-flex justify-content-center align-items-center product_photo_field ">
-                    <a href="" class="product_photo">
-                        <img src="{% static 'images/item.png' %}" alt="" class="product_photo">
-                        <div class="product_discount  d-flex justify-content-center align-items-center">
-                            <p class="product_discount">15%</p>
-                        </div>
-                    </a>
-                </div>
-                <h1 class="product_title">Microsoft surface book</h1>
-                <div class="product_sale d-flex justify-content-between align-items-center">
-                    <p class="product_sale_left">1250$</p>
-                    <p class="product_sale_right">1109$</p>
-                </div>
-                <p class="product_desc"> Et suscipit tortor varius et et sed. Nunc facilisi arcu ut in convallis fringilla ut dui.</p>
+        {% for item in items %}
+            {% if item.is_active %}
+                {% if item.is_sale %}
+                    <div class="col-xl-3 d-flex justify-content-center align-items-center">
+                        <div class="product itemitem">
+                            <div class="d-flex justify-content-center align-items-center product_photo_field ">
+                                <a href="" class="product_photo">
+                                    <img src="{{item.image.url}}" alt="" class="product_photo">
+                                    <div class="product_discount  d-flex justify-content-center align-items-center">
+                                        <p class="product_discount"> {{ item.curent_sale|mul:100|div:item.old_sale|sub:100|floatformat:"0" }}%</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <h1 class="product_title">{{item.name}}</h1>
+                            <div class="product_sale d-flex justify-content-between align-items-center">
+                                <p class="product_sale_left">{{item.old_sale}}</p>
+                                <p class="product_sale_right">{{item.curent_sale}}</p>
+                            </div>
+                            <p class="product_desc"> {{item.desc}}</p>
 
-                <div class="product_nav d-flex justify-content-between align-items-center">
-                    <input type="text" name="" id="" class="product_num" placeholder="кол">
-                    <a href="">
-                        <div class="product_button d-flex justify-content-center align-items-center">
-                            <p class="product_button">В корзину</p>
+                            <div class="product_nav d-flex justify-content-between align-items-center">
+                                <input type="text" name="" id="" class="product_num" placeholder="кол">
+                                <a href="">
+                                    <div class="product_button d-flex justify-content-center align-items-center">
+                                        <p class="product_button">В корзину</p>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-3 d-flex justify-content-center align-items-center">
-            <div class="product itemitem">
-                <div class="d-flex justify-content-center align-items-center product_photo_field ">
-                    <a href="" class="product_photo">
-                        <img src="{% static 'images/item.png' %}" alt="" class="product_photo">
-                        <div class="product_discount  d-flex justify-content-center align-items-center">
-                            <p class="product_discount">15%</p>
-                        </div>
-                    </a>
-                </div>
-                <h1 class="product_title">Microsoft surface book</h1>
-                <div class="product_sale d-flex justify-content-between align-items-center">
-                    <p class="product_sale_left">1250$</p>
-                    <p class="product_sale_right">1109$</p>
-                </div>
-                <p class="product_desc"> Et suscipit tortor varius et et sed. Nunc facilisi arcu ut in convallis fringilla ut dui.</p>
+                    </div>
+                {% else %}
+                    <div class="col-xl-3 d-flex justify-content-center align-items-center">
+                        <div class="product itemitem">
+                            <div class="d-flex justify-content-center align-items-center product_photo_field ">
+                                <a href="" class="product_photo">
+                                    <img src="{{item.image.url}}" alt="" class="product_photo">
+                                </a>
+                            </div>
+                            <h1 class="product_title">{{item.name}}</h1>
+                            <div class="product_sale d-flex justify-content-between align-items-center">
+                                <p class="product_sale_right">{{item.curent_sale}}</p>
+                            </div>
+                            <p class="product_desc"> {{item.desc}}</p>
 
-                <div class="product_nav d-flex justify-content-between align-items-center">
-                    <input type="text" name="" id="" class="product_num" placeholder="кол">
-                    <a href="">
-                        <div class="product_button d-flex justify-content-center align-items-center">
-                            <p class="product_button">В корзину</p>
+                            <div class="product_nav d-flex justify-content-between align-items-center">
+                                <input type="text" name="" id="" class="product_num" placeholder="кол">
+                                <a href="">
+                                    <div class="product_button d-flex justify-content-center align-items-center">
+                                        <p class="product_button">В корзину</p>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-3 d-flex justify-content-center align-items-center">
-            <div class="product itemitem">
-                <div class="d-flex justify-content-center align-items-center product_photo_field ">
-                    <a href="" class="product_photo">
-                        <img src="{% static 'images/item.png' %}" alt="" class="product_photo">
-                        <div class="product_discount  d-flex justify-content-center align-items-center">
-                            <p class="product_discount">15%</p>
-                        </div>
-                    </a>
-                </div>
-                <h1 class="product_title">Microsoft surface book</h1>
-                <div class="product_sale d-flex justify-content-between align-items-center">
-                    <p class="product_sale_left">1250$</p>
-                    <p class="product_sale_right">1109$</p>
-                </div>
-                <p class="product_desc"> Et suscipit tortor varius et et sed. Nunc facilisi arcu ut in convallis fringilla ut dui.</p>
-
-                <div class="product_nav d-flex justify-content-between align-items-center">
-                    <input type="text" name="" id="" class="product_num" placeholder="кол">
-                    <a href="">
-                        <div class="product_button d-flex justify-content-center align-items-center">
-                            <p class="product_button">В корзину</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-3 d-flex justify-content-center align-items-center">
-            <div class="product itemitem">
-                <div class="d-flex justify-content-center align-items-center product_photo_field ">
-                    <a href="" class="product_photo">
-                        <img src="{% static 'images/item.png' %}" alt="" class="product_photo">
-                        <div class="product_discount  d-flex justify-content-center align-items-center">
-                            <p class="product_discount">15%</p>
-                        </div>
-                    </a>
-                </div>
-                <h1 class="product_title">Microsoft surface book</h1>
-                <div class="product_sale d-flex justify-content-between align-items-center">
-                    <p class="product_sale_left">1250$</p>
-                    <p class="product_sale_right">1109$</p>
-                </div>
-                <p class="product_desc"> Et suscipit tortor varius et et sed. Nunc facilisi arcu ut in convallis fringilla ut dui.</p>
-
-                <div class="product_nav d-flex justify-content-between align-items-center">
-                    <input type="text" name="" id="" class="product_num" placeholder="кол">
-                    <a href="">
-                        <div class="product_button d-flex justify-content-center align-items-center">
-                            <p class="product_button">В корзину</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-3 d-flex justify-content-center align-items-center">
-            <div class="product itemitem">
-                <div class="d-flex justify-content-center align-items-center product_photo_field ">
-                    <a href="" class="product_photo">
-                        <img src="{% static 'images/item.png' %}" alt="" class="product_photo">
-                        <div class="product_discount  d-flex justify-content-center align-items-center">
-                            <p class="product_discount">15%</p>
-                        </div>
-                    </a>
-                </div>
-                <h1 class="product_title">Microsoft surface book</h1>
-                <div class="product_sale d-flex justify-content-between align-items-center">
-                    <p class="product_sale_left">1250$</p>
-                    <p class="product_sale_right">1109$</p>
-                </div>
-                <p class="product_desc"> Et suscipit tortor varius et et sed. Nunc facilisi arcu ut in convallis fringilla ut dui.</p>
-
-                <div class="product_nav d-flex justify-content-between align-items-center">
-                    <input type="text" name="" id="" class="product_num" placeholder="кол">
-                    <a href="">
-                        <div class="product_button d-flex justify-content-center align-items-center">
-                            <p class="product_button">В корзину</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-3 d-flex justify-content-center align-items-center">
-            <div class="product itemitem">
-                <div class="d-flex justify-content-center align-items-center product_photo_field ">
-                    <a href="" class="product_photo">
-                        <img src="{% static 'images/item.png' %}" alt="" class="product_photo">
-                        <div class="product_discount  d-flex justify-content-center align-items-center">
-                            <p class="product_discount">15%</p>
-                        </div>
-                    </a>
-                </div>
-                <h1 class="product_title">Microsoft surface book</h1>
-                <div class="product_sale d-flex justify-content-between align-items-center">
-                    <p class="product_sale_left">1250$</p>
-                    <p class="product_sale_right">1109$</p>
-                </div>
-                <p class="product_desc"> Et suscipit tortor varius et et sed. Nunc facilisi arcu ut in convallis fringilla ut dui.</p>
-
-                <div class="product_nav d-flex justify-content-between align-items-center">
-                    <input type="text" name="" id="" class="product_num" placeholder="кол">
-                    <a href="">
-                        <div class="product_button d-flex justify-content-center align-items-center">
-                            <p class="product_button">В корзину</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-3 d-flex justify-content-center align-items-center">
-            <div class="product itemitem">
-                <div class="d-flex justify-content-center align-items-center product_photo_field ">
-                    <a href="" class="product_photo">
-                        <img src="{% static 'images/item.png' %}" alt="" class="product_photo">
-                        <div class="product_discount  d-flex justify-content-center align-items-center">
-                            <p class="product_discount">15%</p>
-                        </div>
-                    </a>
-                </div>
-                <h1 class="product_title">Microsoft surface book</h1>
-                <div class="product_sale d-flex justify-content-between align-items-center">
-                    <p class="product_sale_left">1250$</p>
-                    <p class="product_sale_right">1109$</p>
-                </div>
-                <p class="product_desc"> Et suscipit tortor varius et et sed. Nunc facilisi arcu ut in convallis fringilla ut dui.</p>
-
-                <div class="product_nav d-flex justify-content-between align-items-center">
-                    <input type="text" name="" id="" class="product_num" placeholder="кол">
-                    <a href="">
-                        <div class="product_button d-flex justify-content-center align-items-center">
-                            <p class="product_button">В корзину</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-3 d-flex justify-content-center align-items-center">
-            <div class="product itemitem">
-                <div class="d-flex justify-content-center align-items-center product_photo_field ">
-                    <a href="" class="product_photo">
-                        <img src="{% static 'images/item.png' %}" alt="" class="product_photo">
-                        <div class="product_discount  d-flex justify-content-center align-items-center">
-                            <p class="product_discount">15%</p>
-                        </div>
-                    </a>
-                </div>
-                <h1 class="product_title">Microsoft surface book</h1>
-                <div class="product_sale d-flex justify-content-between align-items-center">
-                    <p class="product_sale_left">1250$</p>
-                    <p class="product_sale_right">1109$</p>
-                </div>
-                <p class="product_desc"> Et suscipit tortor varius et et sed. Nunc facilisi arcu ut in convallis fringilla ut dui.</p>
-
-                <div class="product_nav d-flex justify-content-between align-items-center">
-                    <input type="text" name="" id="" class="product_num" placeholder="кол">
-                    <a href="">
-                        <div class="product_button d-flex justify-content-center align-items-center">
-                            <p class="product_button">В корзину</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-3 d-flex justify-content-center align-items-center">
-            <div class="product itemitem">
-                <div class="d-flex justify-content-center align-items-center product_photo_field ">
-                    <a href="" class="product_photo">
-                        <img src="{% static 'images/item.png' %}" alt="" class="product_photo">
-                        <div class="product_discount  d-flex justify-content-center align-items-center">
-                            <p class="product_discount">15%</p>
-                        </div>
-                    </a>
-                </div>
-                <h1 class="product_title">Microsoft surface book</h1>
-                <div class="product_sale d-flex justify-content-between align-items-center">
-                    <p class="product_sale_left">1250$</p>
-                    <p class="product_sale_right">1109$</p>
-                </div>
-                <p class="product_desc"> Et suscipit tortor varius et et sed. Nunc facilisi arcu ut in convallis fringilla ut dui.</p>
-
-                <div class="product_nav d-flex justify-content-between align-items-center">
-                    <input type="text" name="" id="" class="product_num" placeholder="кол">
-                    <a href="">
-                        <div class="product_button d-flex justify-content-center align-items-center">
-                            <p class="product_button">В корзину</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-3 d-flex justify-content-center align-items-center">
-            <div class="product itemitem">
-                <div class="d-flex justify-content-center align-items-center product_photo_field ">
-                    <a href="" class="product_photo">
-                        <img src="{% static 'images/item.png' %}" alt="" class="product_photo">
-                        <div class="product_discount  d-flex justify-content-center align-items-center">
-                            <p class="product_discount">15%</p>
-                        </div>
-                    </a>
-                </div>
-                <h1 class="product_title">Microsoft surface book</h1>
-                <div class="product_sale d-flex justify-content-between align-items-center">
-                    <p class="product_sale_left">1250$</p>
-                    <p class="product_sale_right">1109$</p>
-                </div>
-                <p class="product_desc"> Et suscipit tortor varius et et sed. Nunc facilisi arcu ut in convallis fringilla ut dui.</p>
-
-                <div class="product_nav d-flex justify-content-between align-items-center">
-                    <input type="text" name="" id="" class="product_num" placeholder="кол">
-                    <a href="">
-                        <div class="product_button d-flex justify-content-center align-items-center">
-                            <p class="product_button">В корзину</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-3 d-flex justify-content-center align-items-center">
-            <div class="product itemitem">
-                <div class="d-flex justify-content-center align-items-center product_photo_field ">
-                    <a href="" class="product_photo">
-                        <img src="{% static 'images/item.png' %}" alt="" class="product_photo">
-                        <div class="product_discount  d-flex justify-content-center align-items-center">
-                            <p class="product_discount">15%</p>
-                        </div>
-                    </a>
-                </div>
-                <h1 class="product_title">Microsoft surface book</h1>
-                <div class="product_sale d-flex justify-content-between align-items-center">
-                    <p class="product_sale_left">1250$</p>
-                    <p class="product_sale_right">1109$</p>
-                </div>
-                <p class="product_desc"> Et suscipit tortor varius et et sed. Nunc facilisi arcu ut in convallis fringilla ut dui.</p>
-
-                <div class="product_nav d-flex justify-content-between align-items-center">
-                    <input type="text" name="" id="" class="product_num" placeholder="кол">
-                    <a href="">
-                        <div class="product_button d-flex justify-content-center align-items-center">
-                            <p class="product_button">В корзину</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-3 d-flex justify-content-center align-items-center">
-            <div class="product itemitem">
-                <div class="d-flex justify-content-center align-items-center product_photo_field ">
-                    <a href="" class="product_photo">
-                        <img src="{% static 'images/item.png' %}" alt="" class="product_photo">
-                        <div class="product_discount  d-flex justify-content-center align-items-center">
-                            <p class="product_discount">15%</p>
-                        </div>
-                    </a>
-                </div>
-                <h1 class="product_title">Microsoft surface book</h1>
-                <div class="product_sale d-flex justify-content-between align-items-center">
-                    <p class="product_sale_left">1250$</p>
-                    <p class="product_sale_right">1109$</p>
-                </div>
-                <p class="product_desc"> Et suscipit tortor varius et et sed. Nunc facilisi arcu ut in convallis fringilla ut dui.</p>
-
-                <div class="product_nav d-flex justify-content-between align-items-center">
-                    <input type="text" name="" id="" class="product_num" placeholder="кол">
-                    <a href="">
-                        <div class="product_button d-flex justify-content-center align-items-center">
-                            <p class="product_button">В корзину</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-3 d-flex justify-content-center align-items-center">
-            <div class="product itemitem">
-                <div class="d-flex justify-content-center align-items-center product_photo_field ">
-                    <a href="" class="product_photo">
-                        <img src="{% static 'images/item.png' %}" alt="" class="product_photo">
-                        <div class="product_discount  d-flex justify-content-center align-items-center">
-                            <p class="product_discount">15%</p>
-                        </div>
-                    </a>
-                </div>
-                <h1 class="product_title">Microsoft surface book</h1>
-                <div class="product_sale d-flex justify-content-between align-items-center">
-                    <p class="product_sale_left">1250$</p>
-                    <p class="product_sale_right">1109$</p>
-                </div>
-                <p class="product_desc"> Et suscipit tortor varius et et sed. Nunc facilisi arcu ut in convallis fringilla ut dui.</p>
-
-                <div class="product_nav d-flex justify-content-between align-items-center">
-                    <input type="text" name="" id="" class="product_num" placeholder="кол">
-                    <a href="">
-                        <div class="product_button d-flex justify-content-center align-items-center">
-                            <p class="product_button">В корзину</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-3 d-flex justify-content-center align-items-center">
-            <div class="product itemitem">
-                <div class="d-flex justify-content-center align-items-center product_photo_field ">
-                    <a href="" class="product_photo">
-                        <img src="{% static 'images/item.png' %}" alt="" class="product_photo">
-                        <div class="product_discount  d-flex justify-content-center align-items-center">
-                            <p class="product_discount">15%</p>
-                        </div>
-                    </a>
-                </div>
-                <h1 class="product_title">Microsoft surface book</h1>
-                <div class="product_sale d-flex justify-content-between align-items-center">
-                    <p class="product_sale_left">1250$</p>
-                    <p class="product_sale_right">1109$</p>
-                </div>
-                <p class="product_desc"> Et suscipit tortor varius et et sed. Nunc facilisi arcu ut in convallis fringilla ut dui.</p>
-
-                <div class="product_nav d-flex justify-content-between align-items-center">
-                    <input type="text" name="" id="" class="product_num" placeholder="кол">
-                    <a href="">
-                        <div class="product_button d-flex justify-content-center align-items-center">
-                            <p class="product_button">В корзину</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-3 d-flex justify-content-center align-items-center">
-            <div class="product itemitem">
-                <div class="d-flex justify-content-center align-items-center product_photo_field ">
-                    <a href="" class="product_photo">
-                        <img src="{% static 'images/item.png' %}" alt="" class="product_photo">
-                        <div class="product_discount  d-flex justify-content-center align-items-center">
-                            <p class="product_discount">15%</p>
-                        </div>
-                    </a>
-                </div>
-                <h1 class="product_title">Microsoft surface book</h1>
-                <div class="product_sale d-flex justify-content-between align-items-center">
-                    <p class="product_sale_left">1250$</p>
-                    <p class="product_sale_right">1109$</p>
-                </div>
-                <p class="product_desc"> Et suscipit tortor varius et et sed. Nunc facilisi arcu ut in convallis fringilla ut dui.</p>
-
-                <div class="product_nav d-flex justify-content-between align-items-center">
-                    <input type="text" name="" id="" class="product_num" placeholder="кол">
-                    <a href="">
-                        <div class="product_button d-flex justify-content-center align-items-center">
-                            <p class="product_button">В корзину</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-3 d-flex justify-content-center align-items-center">
-            <div class="product itemitem">
-                <div class="d-flex justify-content-center align-items-center product_photo_field ">
-                    <a href="" class="product_photo">
-                        <img src="{% static 'images/item.png' %}" alt="" class="product_photo">
-                        <div class="product_discount  d-flex justify-content-center align-items-center">
-                            <p class="product_discount">15%</p>
-                        </div>
-                    </a>
-                </div>
-                <h1 class="product_title">Microsoft surface book</h1>
-                <div class="product_sale d-flex justify-content-between align-items-center">
-                    <p class="product_sale_left">1250$</p>
-                    <p class="product_sale_right">1109$</p>
-                </div>
-                <p class="product_desc"> Et suscipit tortor varius et et sed. Nunc facilisi arcu ut in convallis fringilla ut dui.</p>
-
-                <div class="product_nav d-flex justify-content-between align-items-center">
-                    <input type="text" name="" id="" class="product_num" placeholder="кол">
-                    <a href="">
-                        <div class="product_button d-flex justify-content-center align-items-center">
-                            <p class="product_button">В корзину</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-3 d-flex justify-content-center align-items-center">
-            <div class="product itemitem">
-                <div class="d-flex justify-content-center align-items-center product_photo_field ">
-                    <a href="" class="product_photo">
-                        <img src="{% static 'images/item.png' %}" alt="" class="product_photo">
-                        <div class="product_discount  d-flex justify-content-center align-items-center">
-                            <p class="product_discount">15%</p>
-                        </div>
-                    </a>
-                </div>
-                <h1 class="product_title">Microsoft surface book</h1>
-                <div class="product_sale d-flex justify-content-between align-items-center">
-                    <p class="product_sale_left">1250$</p>
-                    <p class="product_sale_right">1109$</p>
-                </div>
-                <p class="product_desc"> Et suscipit tortor varius et et sed. Nunc facilisi arcu ut in convallis fringilla ut dui.</p>
-
-                <div class="product_nav d-flex justify-content-between align-items-center">
-                    <input type="text" name="" id="" class="product_num" placeholder="кол">
-                    <a href="">
-                        <div class="product_button d-flex justify-content-center align-items-center">
-                            <p class="product_button">В корзину</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-3 d-flex justify-content-center align-items-center">
-            <div class="product itemitem">
-                <div class="d-flex justify-content-center align-items-center product_photo_field ">
-                    <a href="" class="product_photo">
-                        <img src="{% static 'images/item.png' %}" alt="" class="product_photo">
-                        <div class="product_discount  d-flex justify-content-center align-items-center">
-                            <p class="product_discount">15%</p>
-                        </div>
-                    </a>
-                </div>
-                <h1 class="product_title">Microsoft surface book</h1>
-                <div class="product_sale d-flex justify-content-between align-items-center">
-                    <p class="product_sale_left">1250$</p>
-                    <p class="product_sale_right">1109$</p>
-                </div>
-                <p class="product_desc"> Et suscipit tortor varius et et sed. Nunc facilisi arcu ut in convallis fringilla ut dui.</p>
-
-                <div class="product_nav d-flex justify-content-between align-items-center">
-                    <input type="text" name="" id="" class="product_num" placeholder="кол">
-                    <a href="">
-                        <div class="product_button d-flex justify-content-center align-items-center">
-                            <p class="product_button">В корзину</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-3 d-flex justify-content-center align-items-center">
-            <div class="product itemitem">
-                <div class="d-flex justify-content-center align-items-center product_photo_field ">
-                    <a href="" class="product_photo">
-                        <img src="{% static 'images/item.png' %}" alt="" class="product_photo">
-                        <div class="product_discount  d-flex justify-content-center align-items-center">
-                            <p class="product_discount">15%</p>
-                        </div>
-                    </a>
-                </div>
-                <h1 class="product_title">Microsoft surface book</h1>
-                <div class="product_sale d-flex justify-content-between align-items-center">
-                    <p class="product_sale_left">1250$</p>
-                    <p class="product_sale_right">1109$</p>
-                </div>
-                <p class="product_desc"> Et suscipit tortor varius et et sed. Nunc facilisi arcu ut in convallis fringilla ut dui.</p>
-
-                <div class="product_nav d-flex justify-content-between align-items-center">
-                    <input type="text" name="" id="" class="product_num" placeholder="кол">
-                    <a href="">
-                        <div class="product_button d-flex justify-content-center align-items-center">
-                            <p class="product_button">В корзину</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
+                    </div>
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
+        
+            
         
 
 <div style="height: 30px;"></div>
