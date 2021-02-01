@@ -17,13 +17,19 @@ from django.contrib import admin
 from django.conf import settings
 from django.urls import path, include
 from django.conf.urls.static import static
-from index.views import index, catalog
+from index.views import index, catalog, category1, category2, category3, category4, category5
 
 urlpatterns = [
     path('grappelli/', include('grappelli.urls')), 
     path('admin/', admin.site.urls),
     path('', index),
     path('catalog/', catalog, name='catalog'),
+    path('category1/', category1, name='category1'),
+    path('category2/', category2, name='category2'),
+    path('category3/', category3, name='category3'),
+    path('category4/', category4, name='category4'),
+    path('category5/', category5, name='category5'),
+
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,

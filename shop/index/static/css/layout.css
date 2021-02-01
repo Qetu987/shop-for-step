@@ -715,3 +715,40 @@ a:hover {
  }
 
 /* end placeholder */
+
+.small_corusel {
+    display: none;
+  }
+.mobile_corusel {
+    display: none;
+  }
+
+  @media screen and (max-width: 1000px) {
+	.small_corusel {
+	  display: block;
+	}
+	.large_corusel {
+	  display: none;
+	}
+	.mobile_corusel {
+		display: none;
+	  }
+
+	.main_large_carusel{
+		display: none;
+	}
+  }
+
+
+@media screen and (max-width: 760px) {
+	.large_corusel {
+	  display: none;
+	}
+	.mobile_corusel {
+		display: block;
+	  }
+	.small_corusel {
+		display: none;
+	  }
+  }
+  
