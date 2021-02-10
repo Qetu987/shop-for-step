@@ -61,3 +61,4 @@ def category5(r):
 def item_detail(r, slug):
     item = Item.objects.get(name_slug=slug)
     return render(r, 'item_detail.html', {'item': item})
+

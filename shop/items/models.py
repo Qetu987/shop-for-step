@@ -42,7 +42,7 @@ class Item(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('item_detail', kwargs={'slug': self.name })
+        return reverse('item_detail', kwargs={'slug': self.name_slug })
 
 
     @property

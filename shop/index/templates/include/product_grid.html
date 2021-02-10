@@ -9,7 +9,7 @@
                     <div class="col-xl-3 d-flex justify-content-center align-items-center">
                         <div class="product itemitem">
                             <div class="d-flex justify-content-center align-items-center product_photo_field ">
-                                <a href="" class="product_photo">
+                                <a href="{{ item.get_absolute_url }}" class="product_photo">
                                     <img src="{{item.image.url}}" alt="" class="product_photo">
                                     <div class="product_discount  d-flex justify-content-center align-items-center">
                                         <p class="product_discount"> {{ item.curent_sale|mul:100|div:item.old_sale|sub:100|floatformat:"0" }}%</p>
@@ -37,7 +37,7 @@
                     <div class="col-xl-3 d-flex justify-content-center align-items-center">
                         <div class="product itemitem">
                             <div class="d-flex justify-content-center align-items-center product_photo_field ">
-                                <a href="" class="product_photo">
+                                <a href="{{ item.get_absolute_url }}" class="product_photo">
                                     <img src="{{item.image.url}}" alt="" class="product_photo">
                                 </a>
                             </div>

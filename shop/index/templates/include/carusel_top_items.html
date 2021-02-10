@@ -161,7 +161,7 @@
                             <div class="d-flex justify-content-center">
                                 <div class="product">
                                     <div class="d-flex justify-content-center align-items-center product_photo_field ">
-                                        <a href="" class="product_photo">
+                                        <a href="{{ item.get_absolute_url }}" class="product_photo">
                                             <img src="{{item.image.url}}" alt="" class="product_photo">
                                             <div class="product_discount  d-flex justify-content-center align-items-center">
                                                 
@@ -193,7 +193,7 @@
                             <div class="d-flex justify-content-center">
                                 <div class="product">
                                     <div class="d-flex justify-content-center align-items-center product_photo_field ">
-                                        <a href="" class="product_photo">
+                                        <a href="{{ item.get_absolute_url }}" class="product_photo">
                                             <img src="{{item.image.url}}" alt="" class="product_photo">
                                         </a>
                                     </div>

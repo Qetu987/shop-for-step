@@ -24,6 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index),
     path('catalog/', catalog, name='catalog'),
+    path('catalog/', include('items.urls')),
     path('category1/', category1, name='category1'),
     path('category2/', category2, name='category2'),
     path('category3/', category3, name='category3'),
