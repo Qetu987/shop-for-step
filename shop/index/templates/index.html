@@ -1,16 +1,48 @@
 {% extends 'layout.html' %}
+{% load static %}
+
+	
+
+			{% block header %}
+				<div class="display_center">
+					<div class="page_contant">
+						{% include "include/header.html" %}
+					</div>
+				</div>
+			{% endblock %}
 
 
-{% block big_carusel %}
-    {% include "include/big_carusel.html" %}
-{% endblock %}
-    
+			{% block main_block %}
+			<div class="display_center">
+				<div class="page_contant">
+					{% include "include/main_block.html" %}
+				</div>
+			</div>
+				
+			{% endblock %}
 
-{% block squares %}
-    {% include "include/squares.html" %}
-{% endblock %}
+
+			{% block category2 %}
+			<div class="display_center">
+				<div class="page_contant">
+					{% include "include/carusel.html" %}
+				</div>
+			</div>
+				
+			{% endblock %}
 
 
-{% block top_items %}
-    {% include "include/carusel_top_items.html" %}
+			{% block category1 %}
+			<div class="display_center">
+				<div class="page_contant">
+					{% include "include/carusel.html" %}
+				</div>
+			</div>
+				
+			{% endblock %}
+
+
+
+{% block footer %}
+	{% include "include/footer.html" %}
 {% endblock %}

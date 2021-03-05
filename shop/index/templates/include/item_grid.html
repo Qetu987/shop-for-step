@@ -1,0 +1,38 @@
+{% load static %}
+<h1 class="grid_title">Последние товары</h1>
+
+
+			<div class="grid-container">
+				<!-- все товары -->
+				
+				{% for item in items %}
+
+					<a href="{{ item.get_absolute_url }}">
+						<div class="carusel_item">
+							<div class="carusel_items_field">
+								<div class="carusel_items_photo">
+									<img src="{{item.image.url}}" alt="" class="carusel_items_photo">
+								</div>
+								<div class="carusel_item_desc">
+									<div class="carusel_item_desc_left">
+										<h1 class="carusel_item_desc_title">
+											{{item.name}} 
+										</h1>
+										<p class="carusel_item_desc_category">
+											{{item.category}}
+										</p>
+									</div>
+									<div class="carusel_item_desc_right">
+										<p class="carusel_item_desc_price">{{item.curent_sale}} грн</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</a>
+
+				{% endfor %}
+				
+
+			</div>
+
+			<!-- все товары -->

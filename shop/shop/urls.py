@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.conf import settings
 from django.urls import path, include
 from django.conf.urls.static import static
-from index.views import index, catalog, category1, category2, category3, category4, category5
+from index.views import index, catalog, category1, category2, category3, category4, category5, logout
 
 urlpatterns = [
     path('grappelli/', include('grappelli.urls')), 
@@ -30,6 +30,10 @@ urlpatterns = [
     path('category3/', category3, name='category3'),
     path('category4/', category4, name='category4'),
     path('category5/', category5, name='category5'),
+
+
+    path('logout', logout, name='logout'),
+    path('social-auth/', include('social_django.urls', namespace="social")),
 
 ]
 if settings.DEBUG:
